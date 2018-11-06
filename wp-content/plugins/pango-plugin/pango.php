@@ -30,7 +30,7 @@ function Pango() {
 $theme = wp_get_theme();
 
 // If the active theme is Pango then initalise the plugin
-if ($theme->slug = 'pango') {
+if ($theme->slug = 'pango-theme') {
 
     function init_autoloader() {
         require_once( 'includes/class-pango-autoloader.php' );
