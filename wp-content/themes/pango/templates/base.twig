@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html {{ fn('language_attributes') }}>
+    {# Add the native WordPress header.php #}
+
+    {% embed "embeds/header-head.twig" %}
+        {% block head_content %}
+            {{ function('wp_head') }}
+        {% endblock %}
+    {% endembed %}
+
+    <body {{ fn('body_class') }}>
+
+        <div id="page" class="hfeed site">
+            {% embed "embeds/header-navbar.twig" %}{% endembed %}
+
+            {# Include the .twig template extended off base.twig #}
+            {% block content %}{% endblock %}
+
+            {% embed "embeds/footer.twig" %}{% endembed %}
+
+        </div>
+        <!-- #page -->
+
+        {# Add the native WordPress footer function #}
+        {{ function('wp_footer') }}
+
+    </body>
+
+</html>

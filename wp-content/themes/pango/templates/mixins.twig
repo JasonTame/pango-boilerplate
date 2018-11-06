@@ -1,0 +1,35 @@
+{#
+	A useful set of functions you can import into twig templates
+	Example:
+
+	{% import "mixins.twig" as mixin %}
+
+	{{ mixin.image( url, alt, link ) }}
+	===========================================================
+#}
+
+{# Add post block for Events, Blog, Forums #}
+{% macro mixinName(data) %}
+    {% import _self as mixins %}
+    {#
+        Add your macro code here using the optional data parameter
+    #}
+{% endmacro %}
+
+{# Add cover background image with given opacity #}
+{% macro bgImg(src, overlay, opacity = 0) %}
+    {% import _self as mixins %}
+    background-position : 50% 50%; background-size:cover; background-image: linear-gradient(to bottom, rgba({{ overlay}},
+    {{ opacity }}), rgba({{ overlay}},
+    {{ opacity }})), url('{{src}}'); background-image: -moz-linear-gradient(top, rgba({{ overlay}},
+    {{ opacity }}), rgba({{ overlay}},
+    {{ opacity }})), url('{{src}}'); background-image: -o-linear-gradient(top, rgba({{ overlay}},
+    {{ opacity }}), rgba({{ overlay}},
+    {{ opacity }})), url('{{src}}'); background-image: -ms-linear-gradient(top, rgba({{ overlay}},
+    {{ opacity }}), rgba({{ overlay}},
+    {{ opacity }})), url('{{src}}'); background-image: -webkit-gradient(linear, left top, left bottom, from(rgba({{ overlay}},
+    {{ opacity }})), to(rgba({{ overlay}},
+    {{ opacity }}))), url('{{src}}'); background-image: -webkit-linear-gradient(top, rgba({{ overlay}},
+    {{ opacity }}), rgba({{ overlay}},
+    {{ opacity }})), url('{{src}}');
+{% endmacro %}
